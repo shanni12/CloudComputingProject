@@ -35,21 +35,21 @@ async function main(){
         var serverinfo={
             'server_number': server_number
         }
-       import('node-fetch').then(({default: fetch}) => fetch("http://127.0.0.1:5000/getserverinfo", 
-        {
-        method: 'POST',
-        headers: {
-        'Content-type': 'application/json',
-        'Accept': 'application/json'
-        },
-        // Strigify the payload into JSON:
-        body:JSON.stringify(serverinfo)}).then(res=>
-            res ).then(jsonResponse=>{
+    //    import('node-fetch').then(({default: fetch}) => fetch("http://127.0.0.1:5000/getserverinfo", 
+    //     {
+    //     method: 'POST',
+    //     headers: {
+    //     'Content-type': 'application/json',
+    //     'Accept': 'application/json'
+    //     },
+    //     // Strigify the payload into JSON:
+    //     body:JSON.stringify(serverinfo)}).then(res=>
+    //         res ).then(jsonResponse=>{
         
-        // Log the response data in the console
-        console.log(jsonResponse)
-        } 
-        ).catch((err) => console.error(err)));
+    //     // Log the response data in the console
+    //     console.log(jsonResponse)
+    //     } 
+    //     ).catch((err) => console.error(err)));
         var options = {
            method: 'POST',
            uri: 'http://127.0.0.1:5000/candidatenodes',
@@ -79,17 +79,17 @@ async function main(){
         
         var orderedserver = await contract.evaluateTransaction('QueryServer',server_number);
         console.log("in main fucntion")
-        orderedserver=JSON.stringify(orderedserver)
-        console.log("ordered server",orderedserver)
+        orderedserver=orderedserver.toString()
+        console.log("ordered server",JSON.parse(orderedserver))
         var candidateservers=[]
         for(let i=0;i<result.length;i++)
         {
             var candidateserver = await contract.evaluateTransaction('QueryServer',result[i]);
             // candidateserver=candidateserver.toString()
             // console.log(candidateserver)
-            candidateservers.push(JSON.stringify(candidateserver))
+            candidateservers.push(candidateserver.toString())
         }
-        // console.log("candidate servers",candidateservers[0])
+        console.log("candidate servers",candidateservers)
         
         
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
@@ -106,15 +106,18 @@ async function main(){
         // results is an array consisting of messages collected during execution
         // console.log('%j', results);
         res=results
+        var len=res.length
+        res=res[len-1]
+        console.log(res)
         // console.log(res)
         });
-        var obj;
+        var obj,key,val,i;
         var tasks=JSON.parse(orderedserver)['tasks']
-        setTimeout(()=>{ 
-            var resu=res[0]
+        setTimeout(async ()=>{ 
+            var resu=res
             obj = eval("(" + resu + ")");
             for([key, val] of Object.entries(obj)) {
-                for(let i=0;i<tasks.length;i++)
+                for(i=0;i<tasks.length;i++)
                 {
                     if(tasks[i]['Task_number']==key)
                     {
@@ -122,13 +125,14 @@ async function main(){
                     }
                 }
                 var tasktosend=JSON.stringify(tasks[i]);
-                contract.submitTransaction('ExchangeTask',server_number,val,tasktosend);
+                console.log(tasktosend)
+                await contract.submitTransaction('ExchangeTask',server_number,val,tasktosend);
                 console.log(key, val);
-              }
-            console.log(JSON.parse(JSON.stringify(res)),"results");},10000)
+              }},2000)
+            // console.log(JSON.parse(JSON.stringify(res)),"results");},2000)
             
 
-        // await gateway.disconnect();
+        await gateway.disconnect();
     } catch (error) {
         // console.error(`Failed to register user ${username}: ${error}`);
         // process.exit(1);

@@ -36,13 +36,13 @@ for i in dataform:
 # # only the candidate servers
 
 # server_info = [ {'server_number': '13', 'cpu_clock_frequency': '10', 'memory': '60', 'power':'100','hardware_info':'90','tasks': [{'Task_number': '1', 'Task_size': '10', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '2', 'Task_size': '40', 'Cpu_cycles': '2', 'Deadline': '2'} ]} ,
-#   {'server_number': '24', 'cpu_clock_frequency': '12', 'memory': '40', 'power':'100','hardware_info':'80','tasks': [{'Task_number': '1', 'Task_size': '20', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '2', 'Task_size': '15', 'Cpu_cycles': '2', 'Deadline': '2'}]} ,
+#   {'server_number': '24', 'cpu_clock_frequency': '12', 'memory': '40', 'power':'100','hardware_info':'80','tasks': [{'Task_number': '3', 'Task_size': '20', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '4', 'Task_size': '15', 'Cpu_cycles': '2', 'Deadline': '2'}]} ,
  
   
  
-#    {'server_number': '4', 'cpu_clock_frequency': '13', 'memory': '100','power':'100' , 'hardware_info':'45' ,'tasks': [{'Task_number': '1', 'Task_size': '70', 'Cpu_cycles': '2', 'Deadline': '2'}]} , 
+#    {'server_number': '4', 'cpu_clock_frequency': '13', 'memory': '100','power':'100' , 'hardware_info':'45' ,'tasks': [{'Task_number': '5', 'Task_size': '70', 'Cpu_cycles': '2', 'Deadline': '2'}]} , 
  
-#    {'server_number': '52', 'cpu_clock_frequency': '30', 'memory': '200','power':'100' , 'hardware_info':'50','tasks': [{'Task_number': '1', 'Task_size': '60', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '2', 'Task_size': '50', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '3', 'Task_size': '10', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '4', 'Task_size': '20', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '5', 'Task_size': '10', 'Cpu_cycles': '2', 'Deadline': '2'} ]}  
+#    {'server_number': '52', 'cpu_clock_frequency': '30', 'memory': '200','power':'100' , 'hardware_info':'50','tasks': [{'Task_number': '6', 'Task_size': '60', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '7', 'Task_size': '50', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '8', 'Task_size': '10', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '9', 'Task_size': '20', 'Cpu_cycles': '2', 'Deadline': '2'} , {'Task_number': '10', 'Task_size': '10', 'Cpu_cycles': '2', 'Deadline': '2'} ]}  
  
   
 
@@ -52,7 +52,7 @@ for i in dataform:
 
 
 
-# offloaded_server = {'server_number': '1', 'cpu_clock_frequency': '3', 'memory': '50', 'power':'100', 'hardware_info':'57' ,'tasks': [{'Task_number': '10', 'Task_size': '1', 'Cpu_cycles': '2', 'Deadline': '10'} , {'Task_number': '21', 'Task_size': '3', 'Cpu_cycles': '5', 'Deadline': '8'} , {'Task_number': '3', 'Task_size': '4', 'Cpu_cycles': '2', 'Deadline': '6'}]} 
+# offloaded_server = {'server_number': '1', 'cpu_clock_frequency': '3', 'memory': '50', 'power':'100', 'hardware_info':'57' ,'tasks': [{'Task_number': '11', 'Task_size': '1', 'Cpu_cycles': '2', 'Deadline': '10'} , {'Task_number': '12', 'Task_size': '3', 'Cpu_cycles': '5', 'Deadline': '8'} , {'Task_number': '13', 'Task_size': '4', 'Cpu_cycles': '2', 'Deadline': '6'}]} 
 
 
 
